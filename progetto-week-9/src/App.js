@@ -13,8 +13,8 @@ function App() {
         <Container fluid>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/album/:id" element={<AlbumPage />} />
-            <Route path="/artist/:id" element={<ArtistPage />} />
+            <Route path="/album/:albumId" element={<AlbumPage />} />
+            <Route path="/artist/:artistId" element={<ArtistPage />} />
           </Routes>
           <PlayerComponent />
         </Container>

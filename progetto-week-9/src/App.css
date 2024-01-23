@@ -243,6 +243,6 @@ ul {
 
 
 .placeholder-fade {
-  color: #334560 ;
-  animation: placeholderFade 1.5s infinite;
+  color: #334560 !important;
+  animation: placeholderFade 1.5s infinite !important;
 }

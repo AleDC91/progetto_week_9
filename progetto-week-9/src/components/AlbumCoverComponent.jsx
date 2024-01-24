@@ -1,5 +1,6 @@
 import React from 'react'
 import { Col } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 
 export default function AlbumCoverComponent({albumData}) {
@@ -13,9 +14,9 @@ export default function AlbumCoverComponent({albumData}) {
     <div className="mt-4 text-center">
       <p className="album-title">{albumData.title}</p>
     </div>
-    <div className="text-center">
+    <Link to={`/artist/${albumData.artist.id}`} className="text-center text-decoration-none">
       <p className="artist-name">{albumData.artist.name}</p>
-    </div>
+    </Link>
     <div class="mt-4 text-center">
       <button id="btnPlay" className="btn btn-success" type="button">
         Play

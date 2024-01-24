@@ -3,8 +3,13 @@ import { Navbar, Nav, Container, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SearchComponent from "./SearchComponent";
 import NavBottomButtonsComponent from './NavBottomButtonsComponent'
+import { useDispatch } from "react-redux";
+import { clearSearchList } from "../actions/searchSongsActions";
 
 export default function NavbarComponent() {
+
+const dispatch = useDispatch()
+
   return (
     <Col xs={2} className="navbar-component ">
       <Navbar
@@ -27,10 +32,10 @@ export default function NavbarComponent() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="navbar-nav">
               <Nav className="me-auto pt-0 navbar d-flex">
-                <Link to="/" className="nav-link">
+                <Link to="/" className="nav-link" onClick={() => dispatch(clearSearchList())}>
                   <i className="fas fa-home fa-lg"></i>&nbsp; Home
                 </Link>
-                <Link to="/library" className="nav-link">
+                <Link to="/myLibrary" className="nav-link" onClick={() => dispatch(clearSearchList())}>
                   <i className="fas fa-book-open fa-lg"></i>&nbsp; Your Library
                 </Link>
                 <SearchComponent />

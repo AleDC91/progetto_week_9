@@ -246,3 +246,52 @@ ul {
   color: #334560 !important;
   animation: placeholderFade 1.5s infinite !important;
 }
+
+.mainButton.placeholder-fade {
+  border: none !important;
+  border-radius: 20px !important;
+  height: 2.2em !important;
+  width: 7em;
+  text-align: center;
+  padding: 0px 10px !important;
+  background-color: #334560 !important;
+}
+
+.song-info-container{
+  position: absolute;
+  left: 10px;
+  top:10px
+}
+
+@media screen and (min-width: 992px) {
+  .song-info-container{
+   
+    left: 240px;
+  }
+}
+
+.song-info {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .controller-remove{
+    display: none;
+  }
+}
+
+
+.song-info{
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 576px) {
+  .song-info-container {
+    padding-right: 20px;
+    justify-content: space-between;
+  }
+  .song-info{
+    text-align: right;
+  }
+}

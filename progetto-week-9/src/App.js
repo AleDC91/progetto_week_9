@@ -5,6 +5,7 @@ import ArtistPage from "./pages/ArtistPage";
 import PlayerComponent from "./components/PlayerComponent";
 import { Container } from "react-bootstrap";
 import "./App.css";
+import MyLibraryPage from "./pages/MyLibraryPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/album/:albumId" element={<AlbumPage />} />
             <Route path="/artist/:artistId" element={<ArtistPage />} />
+            <Route path="/myLibrary" element={<MyLibraryPage />} /> 
           </Routes>
           <PlayerComponent />
         </Container>

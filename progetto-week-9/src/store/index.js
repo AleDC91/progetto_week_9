@@ -7,6 +7,7 @@ import storage from "redux-persist/lib/storage";
 import searchSongsReducer from "../reducers/searchSongsReducer";
 import defaultSongsReducer from "../reducers/defaultSongsReducer";
 import myLibraryReducer from "../reducers/myLibraryReducer";
+import activeSongReducer from "../reducers/activeSongReducer";
 
 const initialState = {
   activeSong: {},
@@ -32,6 +33,7 @@ const bigReducer = combineReducers({
   myLibrary: myLibraryReducer,
   searchSongs: searchSongsReducer,
   defaultSongs: defaultSongsReducer,
+  activeSong: activeSongReducer
 });
 
 const persistentConfig = {

@@ -7,12 +7,12 @@ import MainLinksComponent from "./MainLinksComponent";
 import ArtistContainerComponent from "./ArtistContainerComponent";
 import { artistHeaders, artistURL, searchHeaders, searchURL } from "../config";
 import axios from "axios";
-import ArtistTracksComponent from "./ArtistTracksComponent";
 import ErrorDefaultSongsComponent from "./ErrorDefaultSongsComponent";
 import LoaderSearchSongsComponent from "./LoaderSearchSongsComponent";
 import SearchResultsComponent from "./SearchResultsComponent";
-import LoadingArtistComponent from "./LoadingArtistComponent";
+import LoadingArtistHeaderComponent from "./LoadingArtistHeaderComponent";
 import { clearSearchList } from "../actions/searchSongsActions";
+import LoadingArtistTracklistComponent from "./LoadingArtistTracklistComponent";
 
 export default function ArtistPageComponent() {
   const dispatch = useDispatch();
@@ -32,32 +32,33 @@ export default function ArtistPageComponent() {
   const errorSearch = useSelector((state) => state.searchSongs.errorMsg);
 
   useEffect(() => {
-    dispatch(clearSearchList())
+    dispatch(clearSearchList());
     getArtistData(artistId);
-  }, [artistId]);
-
+  }, [artistId, dispatch]);
 
   useEffect(() => {
-    getArtistSong(artistData.name)
-  }, [artistData]);
+    getArtistSong(artistData.name);
+  }, [artistData, dispatch]);
 
   const getArtistSong = (artist) => {
     setLoadingTracklist(true);
     setErrorTracklist("");
     axios(searchURL + artist, {
       headers: searchHeaders,
-    }).then((res) => {
-      if (res.status === 200) {
-        setArtistTracklist(res.data.data);
-        setLoadingTracklist(false);
-      } else {
-        setErrorTracklist(res.request.status);
-        setLoadingTracklist(false);
-      }
-    }).catch((err) => {
-      setErrorTracklist(err.message);
-      setLoadingTracklist(false);
     })
+      .then((res) => {
+        if (res.status === 200) {
+          setArtistTracklist(res.data.data);
+          setLoadingTracklist(false);
+        } else {
+          setErrorTracklist(res.request.status);
+          setLoadingTracklist(false);
+        }
+      })
+      .catch((err) => {
+        setErrorTracklist(err.message);
+        setLoadingTracklist(false);
+      });
   };
 
   const getArtistData = (id) => {
@@ -86,14 +87,33 @@ export default function ArtistPageComponent() {
       <NavbarComponent />
       <Col xs={12} lg={{ span: 9, offset: 3 }} className="mainPage">
         <MainLinksComponent />
-        {searchList.length !== 0 && !loadingSearch &&  <SearchResultsComponent list={searchList} /> }
-        {loadingSearch && <LoaderSearchSongsComponent />} 
-        {errorSearch && <ErrorDefaultSongsComponent errorMsg={errorSearch} />} 
-        {loadingArtist  && <LoadingArtistComponent />}
-        {loadingTracklist && <p>loadingTracklist...</p>}
-        {(Object.keys(artistData).length > 0  && artistTracklist.length > 0) && <ArtistContainerComponent artistData={artistData} tracks={artistTracklist}/>} 
-        {(errorArtistMsg || errorTracklist) && <ErrorDefaultSongsComponent errorMsg={errorArtistMsg + errorTracklist} />}    
-      
+        {searchList.length !== 0 && !loadingSearch && (
+          <SearchResultsComponent list={searchList} />
+        )}
+        {loadingSearch && <LoaderSearchSongsComponent />}
+        {errorSearch && <ErrorDefaultSongsComponent errorMsg={errorSearch} />}
+        {(loadingArtist || loadingTracklist) && (
+          <LoadingArtistHeaderComponent />
+        )}
+        {loadingTracklist && <LoadingArtistTracklistComponent />}
+        {Object.keys(artistData).length > 0 && artistTracklist.length > 0 && (
+          <ArtistContainerComponent
+            artistData={artistData}
+            tracks={artistTracklist}
+          />
+        )}
+        {(errorArtistMsg || errorTracklist) && (
+          <ErrorDefaultSongsComponent
+            errorMsg={
+              (errorArtistMsg
+                ? "Error fetching artist: " + errorArtistMsg
+                : "") +
+              (errorTracklist
+                ? "Error fetching tracklist: " + errorTracklist
+                : "")
+            }
+          />
+        )}
       </Col>
     </Row>
   );

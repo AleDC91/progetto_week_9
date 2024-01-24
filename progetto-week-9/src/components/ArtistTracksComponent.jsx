@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import TrackComponent from "./TrackComponent";
 
 export default function ArtistTracksComponent({ tracks }) {
   return (
@@ -11,25 +11,7 @@ export default function ArtistTracksComponent({ tracks }) {
         </div>
         <div className="pt-5 mb-5">
           <Row id="apiloaded">
-            {tracks.map((track) => {
-              return <Col sm="auto" className="text-center mb-5">
-                <Link to={`/album/${track.album.id}`}>
-                  <img src={track.album.cover_medium} alt={track.album.title} />
-                </Link>
-                <p>
-                  <Link>
-                    Track: {track.title.length < 16 ? track.title : track.title.substring(0, 16) + "..."}
-                  </Link>
-                </p>
-                <br />
-                <p>
-                  <Link to={`/album/${track.album.id}`}>
-                    Album: {track.album.title.length < 16 ? track.album.title : track.album.title.substring(0, 16) + "..."}
-                  </Link>
-                </p>
-
-              </Col>;
-            })}
+            {tracks.map((track, index) => <TrackComponent key={index} track={track} />)}
           </Row>
         </div>
       </Col>

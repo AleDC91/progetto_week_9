@@ -23,6 +23,8 @@ export const searchURL = "https://striveschool-api.herokuapp.com/api/deezer/sear
 
 export const albumURL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
 
+export const artistURL = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
+
 export const defaultArtists = {
   rockArtists:  [
     'queen',

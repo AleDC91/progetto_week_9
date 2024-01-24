@@ -9,7 +9,7 @@ import {getAllDefaultSongs} from "../actions/defaultSongsActions";
 import LoaderDefaultContainerComponent from "./LoaderDefaultContainerComponent"
 import ErrorDefaultSongsComponent from "./ErrorDefaultSongsComponent"
 import LoaderSearchSongsComponent from "./LoaderSearchSongsComponent"
-import { clearSearchList } from "../actions/searchSongsActions"
+import { clearSearchList, clearSearchError } from "../actions/searchSongsActions"
 
 export default function MainPageComponent() {
 
@@ -17,7 +17,7 @@ const dispatch = useDispatch()
 
 
   useEffect(() => {
-    
+    dispatch(clearSearchError());
     dispatch(getAllDefaultSongs());
     dispatch(clearSearchList())
   }, [dispatch]);

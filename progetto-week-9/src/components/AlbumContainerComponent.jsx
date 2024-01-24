@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import AlbumTracksComponent from "./AlbumTracksComponent";
 import AlbumCoverComponent from "./AlbumCoverComponent";
 

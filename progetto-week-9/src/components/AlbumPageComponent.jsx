@@ -16,8 +16,10 @@ import {clearSearchList} from "../actions/searchSongsActions.js"
 
 export default function AlbumPageComponent() {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   const { albumId } = useParams();
+  
   const [albumData, setAlbumData] = useState({});
   const [loadingAlbum, setLoadingAlbum] = useState(false);
   const [errorAlbumMsg, setErrorAlbumMsg] = useState("");

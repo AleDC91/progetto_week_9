@@ -16,6 +16,7 @@ export const clearSearch = () => {
 };
 
 export const setSearchError = (error) => {
+  console.log("set search error")
   return {
     type: "SET_SEARCH_ERROR",
     payload: error,
@@ -23,6 +24,7 @@ export const setSearchError = (error) => {
 };
 
 export const clearSearchError = () => {
+  console.log("clear search error")
   return {
     type: "CLEAR_SEARCH_ERROR",
   };
@@ -45,7 +47,7 @@ export const searchSongs = (query) => {
     dispatch(clearSearchError());
     dispatch(setSearchLoading());
     axios(searchURL + query, {
-      headers: searchHeaders,
+       headers: searchHeaders,
     })
       .then((res) => {
         if (res.status === 200) {

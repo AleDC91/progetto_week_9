@@ -35,7 +35,7 @@ export const getRockSongs = () => {
           if (rockList.length === 0) {
             console.log("Fetching rock songs for", artist);
             axios(searchURL + artist, {
-              //  headers: searchHeaders,
+                headers: searchHeaders,
             })
               .then((res) => {
                 if (res.request.status === 200) {
@@ -77,7 +77,7 @@ export const getPopSongs = () => {
           if (popList.length === 0) {
             console.log("Fetching pop songs for", artist);
             axios(searchURL + artist, {
-              headers: searchHeaders,
+               headers: searchHeaders,
             })
               .then((res) => {
                 if (res.request.status === 200) {
@@ -119,7 +119,7 @@ export const getHipHopSongs = () => {
           if (hipHopList.length === 0) {
             console.log("Fetching pop songs for", artist);
             axios(searchURL + artist, {
-              headers: searchHeaders,
+               headers: searchHeaders,
             })
               .then((res) => {
                 if (res.request.status === 200) {

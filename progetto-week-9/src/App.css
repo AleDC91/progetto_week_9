@@ -81,9 +81,26 @@ ul {
 
 @media screen and (max-width: 992px) {
   #sidebar {
-    display: none;
+    left: -230px ;
+    transition: all 0.3s ease-in-out;
   }
 }
+
+@media screen and (min-width: 993px) {
+  #sidebar {
+    left: 0 !important ;
+  }
+}
+
+#sidebar.hide{
+  left: -230px;
+}
+
+#sidebar.show{
+  left: 0px
+}
+
+
 
 /* BOTTOM PLAYER SECTION*/
 
@@ -293,5 +310,17 @@ ul {
   }
   .song-info{
     text-align: right;
+  }
+}
+.display-menu-btn{
+  position: fixed !important;
+  left: calc(100vw - 100px);
+  top: 10px;
+  display: none
+}
+
+@media screen and (max-width: 992px) {
+  .display-menu-btn{
+    display: block;
   }
 }

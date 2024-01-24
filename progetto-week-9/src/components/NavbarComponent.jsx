@@ -14,12 +14,12 @@ const dispatch = useDispatch()
     <Col xs={2} className="navbar-component ">
       <Navbar
         expand="lg"
-        className=" bg-body-tertiary  navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between"
+        className=" bg-body-tertiary navbar navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between"
         id="sidebar"
       >
         <Container className="d-flex flex-column justify-content-between h-100">
           <div className="nav-container d-flex flex-column">
-            <Navbar.Brand>
+            <div className="navbar-brand">
               <Link to="/">
                 <img
                   src="images/Spotify_Logo.png"
@@ -28,19 +28,19 @@ const dispatch = useDispatch()
                   height="40"
                 />
               </Link>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="navbar-nav">
-              <Nav className="me-auto pt-0 navbar d-flex">
-                <Link to="/" className="nav-link" onClick={() => dispatch(clearSearchList())}>
+            </div>
+
+            <div id="navbar-nav">
+              <div className="me-auto pt-0 navbar d-flex text-secondary flex-column align-items-start nav-item m-2">
+                <Link to="/" className="nav-link mb-3" onClick={() => dispatch(clearSearchList())}>
                   <i className="fas fa-home fa-lg"></i>&nbsp; Home
                 </Link>
                 <Link to="/myLibrary" className="nav-link" onClick={() => dispatch(clearSearchList())}>
                   <i className="fas fa-book-open fa-lg"></i>&nbsp; Your Library
                 </Link>
                 <SearchComponent />
-              </Nav>
-            </Navbar.Collapse>
+              </div>
+            </div>
           </div>
           <NavBottomButtonsComponent />
         </Container>

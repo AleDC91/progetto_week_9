@@ -22,7 +22,7 @@ import MyLibraryPage from "./pages/MyLibraryPage";
 
 // ogni tanto le chiamate AJAX non vanno a buon fine per problemi dovuti al server o 
 // alla frequenza elevata delle richieste.
-// il pulsante refresh in caso di errore è stato aggiunto prevalentemente per questo motivo.
+// Il pulsante refresh in caso di errore (specificato dal relativo componente) è stato aggiunto prevalentemente per questo motivo.
 
 // per quanto riguarda il responsive, ho cercato di replicare fedelmente il mockup.
 // mi sono limitato ad aggiungere quanlche piccolo dettaglio al player e 

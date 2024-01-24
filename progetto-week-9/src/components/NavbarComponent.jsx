@@ -22,7 +22,7 @@ const dispatch = useDispatch()
             <div className="navbar-brand">
               <Link to="/">
                 <img
-                  src="images/Spotify_Logo.png"
+                  src={`/images/Spotify_Logo.png`}
                   alt="Spotify_Logo"
                   width="131"
                   height="40"

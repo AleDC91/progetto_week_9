@@ -23,30 +23,30 @@ export default function PlayerComponent() {
               <Row>
                 <Col>
                   <Link to="#" className="controller-remove">
-                    <img src="images/playerbuttons/Shuffle.png" alt="shuffle" />
+                    <img src={`/images/playerbuttons/Shuffle.png`} alt="shuffle" />
                   </Link>
                 </Col>
                 <Col>
                   <Link to="#" className="controller-remove">
                     <img
-                      src="images/playerbuttons/Previous.png"
+                      src={`/images/playerbuttons/Previous.png`}
                       alt="previous"
                     />
                   </Link>
                 </Col>
                 <Col>
                   <Link to="#">
-                    <img src="images/playerbuttons/Play.png" alt="play" />
+                    <img src={`/images/playerbuttons/Play.png`} alt="play" />
                   </Link>
                 </Col>
                 <Col>
                   <Link to="#" className="controller-remove">
-                    <img src="images/playerbuttons/Next.png" alt="next" />
+                    <img src={`/images/playerbuttons/Next.png`} alt="next" />
                   </Link>
                 </Col>
                 <Col>
                   <Link to="#" className="controller-remove">
-                    <img src="images/playerbuttons/Repeat.png" alt="repeat" />
+                    <img src={`/images/playerbuttons/Repeat.png`} alt="repeat" />
                   </Link>
                 </Col>
               </Row>
